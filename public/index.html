@@ -13,7 +13,8 @@
   <body>
     <div id="content"></div>
     <script type="text/babel">
-  // Based on Tutorial @ https://facebook.github.io/react/docs/tutorial.html
+// Based on Tutorial @ https://facebook.github.io/react/docs/tutorial.html
+// This Component is the Parent to the other comment Components below
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -67,7 +68,7 @@ var CommentBox = React.createClass({
     );
   }
 });
-    
+// Child Component to ComponentBox    
 var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
@@ -84,7 +85,8 @@ var CommentList = React.createClass({
     );
   }
 });
-
+// Child Component to ComponentBox
+// Allows Users to add new Comments
 var CommentForm = React.createClass({
   getInitialState: function() {
     return {author: '', text: ''};
@@ -126,7 +128,8 @@ var CommentForm = React.createClass({
   }
 });
 
-
+// Component Child to COmmentBox
+// Component controls view for actual comments
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
